@@ -1,0 +1,212 @@
+==================
+WARNING: ThreadSanitizer: data race (pid=313777)
+  Write of size 8 at 0x7b5400000018 by thread T1 (mutexes: write M1, write M0):
+    #0 eat /home/macorso/Projects/philosopher/philo/src/routine.c:43:24 (philo+0x4baf54)
+    #1 philosopher_routine /home/macorso/Projects/philosopher/philo/src/routine.c:68:3 (philo+0x4bb0d9)
+
+  Previous read of size 8 at 0x7b5400000018 by thread T11 (mutexes: write M11):
+    #0 death_monitor /home/macorso/Projects/philosopher/philo/src/death.c:35:44 (philo+0x4ba2c6)
+
+  Location is heap block of size 560 at 0x7b5400000000 allocated by main thread:
+    #0 malloc <null> (philo+0x44840b)
+    #1 ft_allocate_resources /home/macorso/Projects/philosopher/philo/src/init.c:50:16 (philo+0x4ba7f1)
+    #2 ft_create_info /home/macorso/Projects/philosopher/philo/src/init.c:39:7 (philo+0x4ba728)
+    #3 ft_init_info /home/macorso/Projects/philosopher/philo/src/philo.c:21:9 (philo+0x4bb182)
+    #4 main /home/macorso/Projects/philosopher/philo/src/philo.c:80:9 (philo+0x4bb4f8)
+
+  Mutex M1 (0x7b4c00000028) created at:
+    #0 pthread_mutex_init <null> (philo+0x44b46d)
+    #1 ft_allocate_resources /home/macorso/Projects/philosopher/philo/src/init.c:62:7 (philo+0x4ba926)
+    #2 ft_create_info /home/macorso/Projects/philosopher/philo/src/init.c:39:7 (philo+0x4ba728)
+    #3 ft_init_info /home/macorso/Projects/philosopher/philo/src/philo.c:21:9 (philo+0x4bb182)
+    #4 main /home/macorso/Projects/philosopher/philo/src/philo.c:80:9 (philo+0x4bb4f8)
+
+  Mutex M0 (0x7b4c00000000) created at:
+==================
+WARNING: ThreadSanitizer: data race (pid=313777)
+  Write of size 8 at 0x7b5400000018 by thread T1 (mutexes: write M1, write M0):
+    #0 eat /home/macorso/Projects/philosopher/philo/src/routine.c:43:24 (philo+0x4baf54)
+    #1 philosopher_routine /home/macorso/Projects/philosopher/philo/src/routine.c:68:3 (philo+0x4bb0d9)
+
+  Previous read of size 8 at 0x7b5400000018 by thread T11 (mutexes: write M11):
+    #0 death_monitor /home/macorso/Projects/philosopher/philo/src/death.c:35:44 (philo+0x4ba2c6)
+
+  Location is heap block of size 560 at 0x7b5400000000 allocated by main thread:
+    #0 malloc <null> (philo+0x44840b)
+    #1 ft_allocate_resources /home/macorso/Projects/philosopher/philo/src/init.c:50:16 (philo+0x4ba7f1)
+    #2 ft_create_info /home/macorso/Projects/philosopher/philo/src/init.c:39:7 (philo+0x4ba728)
+    #3 ft_init_info /home/macorso/Projects/philosopher/philo/src/philo.c:21:9 (philo+0x4bb182)
+    #4 main /home/macorso/Projects/philosopher/philo/src/philo.c:80:9 (philo+0x4bb4f8)
+
+  Mutex M1 (0x7b4c00000028) created at:
+    #0 pthread_mutex_init <null> (philo+0x44b46d)
+    #1 ft_allocate_resources /home/macorso/Projects/philosopher/philo/src/init.c:62:7 (philo+0x4ba926)
+    #2 ft_create_info /home/macorso/Projects/philosopher/philo/src/init.c:39:7 (philo+0x4ba728)
+    #3 ft_init_info /home/macorso/Projects/philosopher/philo/src/philo.c:21:9 (philo+0x4bb182)
+    #4 main /home/macorso/Projects/philosopher/philo/src/philo.c:80:9 (philo+0x4bb4f8)
+
+  Mutex M0 (0x7b4c00000000) created at:
+    #0 pthread_mutex_init <null> (philo+0x44b46d)
+    #1 ft_allocate_resources /home/macorso/Projects/philosopher/philo/src/init.c:62:7 (philo+0x4ba926)
+    #2 ft_create_info /home/macorso/Projects/philosopher/philo/src/init.c:39:7 (philo+0x4ba728)
+    #3 ft_init_info /home/macorso/Projects/philosopher/philo/src/philo.c:21:9 (philo+0x4bb182)
+    #4 main /home/macorso/Projects/philosopher/philo/src/philo.c:80:9 (philo+0x4bb4f8)
+
+  Mutex M11 (0x7b2000000058) created at:
+    #0 pthread_mutex_init <null> (philo+0x44b46d)
+    #1 ft_create_info /home/macorso/Projects/philosopher/philo/src/init.c:42:2 (philo+0x4ba769)
+    #2 ft_init_info /home/macorso/Projects/philosopher/philo/src/philo.c:21:9 (philo+0x4bb182)
+    #3 main /home/macorso/Projects/philosopher/philo/src/philo.c:80:9 (philo+0x4bb4f8)
+
+  Thread T1 (tid=313780, running) created by main thread at:
+    #0 pthread_create <null> (philo+0x449c3b)
+    #0 pthread_mutex_init <null> (philo+0x44b46d)
+    #1 ft_allocate_resources /home/macorso/Projects/philosopher/philo/src/init.c:62:7 (philo+0x4ba926)
+    #2 ft_create_info /home/macorso/Projects/philosopher/philo/src/init.c:39:7 (philo+0x4ba728)
+    #3 ft_init_info /home/macorso/Projects/philosopher/philo/src/philo.c:21:9 (philo+0x4bb182)
+    #4 main /home/macorso/Projects/philosopher/philo/src/philo.c:80:9 (philo+0x4bb4f8)
+
+  Mutex M11 (0x7b2000000058) created at:
+    #0 pthread_mutex_init <null> (philo+0x44b46d)
+    #1 ft_create_info /home/macorso/Projects/philosopher/philo/src/init.c:42:2 (philo+0x4ba769)
+    #2 ft_init_info /home/macorso/Projects/philosopher/philo/src/philo.c:21:9 (philo+0x4bb182)
+    #3 main /home/macorso/Projects/philosopher/philo/src/philo.c:80:9 (philo+0x4bb4f8)
+
+  Thread T1 (tid=313780, running) created by main thread at:
+    #0 pthread_create <null> (philo+0x449c3b)
+    #1 ft_start_simulation /home/macorso/Projects/philosopher/philo/src/philo.c:37:7 (philo+0x4bb293)
+    #1 ft_start_simulation /home/macorso/Projects/philosopher/philo/src/philo.c:37:7 (philo+0x4bb293)
+    #2 main /home/macorso/Projects/philosopher/philo/src/philo.c:85:6 (philo+0x4bb560)
+    #2 main /home/macorso/Projects/philosopher/philo/src/philo.c:85:6 (philo+0x4bb560)
+
+  Thread T11
+  Thread T11 (tid=313790, running) created by main thread at:
+ (tid=313790, running) created by main thread at:
+    #0 pthread_create <null> (philo+0x449c3b)
+    #0 pthread_create <null> (philo+0x449c3b)
+    #1 ft_start_simulation /home/macorso/Projects/philosopher/philo/src/philo.c:41:6 (philo+0x4bb2dc)
+    #1 ft_start_simulation /home/macorso/Projects/philosopher/philo/src/philo.c:41:6 (philo+0x4bb2dc)
+    #2 main /home/macorso/Projects/philosopher/philo/src/philo.c:85:6 (philo+0x4bb560)
+
+    #2 main /home/macorso/Projects/philosopher/philo/src/philo.c:85:6 (philo+0x4bb560)
+
+SUMMARY: ThreadSanitizer: data race /home/macorso/Projects/philosopher/philo/src/routine.c:43:24 in eat
+SUMMARY: ThreadSanitizer: data race /home/macorso/Projects/philosopher/philo/src/routine.c:43:24 in eat
+==================
+==================
+==================
+WARNING: ThreadSanitizer: data race (pid=313777)
+  Write of size 4 at 0x7b5400000010 by thread T1 (mutexes: write M1, write M0):
+    #0 eat /home/macorso/Projects/philosopher/philo/src/routine.c:44:20 (philo+0x4baf7d)
+    #1 philosopher_routine /home/macorso/Projects/philosopher/philo/src/routine.c:68:3 (philo+0x4bb0d9)
+
+  Previous read of size 4 at 0x7b5400000010 by thread T11 (mutexes: write M11):
+    #0 death_monitor /home/macorso/Projects/philosopher/philo/src/death.c:27:23 (philo+0x4ba20e)
+
+  Location is heap block of size 560 at 0x7b5400000000 allocated by main thread:
+    #0 malloc <null> (philo+0x44840b)
+    #1 ft_allocate_resources /home/macorso/Projects/philosopher/philo/src/init.c:50:16 (philo+0x4ba7f1)
+    #2 ft_create_info /home/macorso/Projects/philosopher/philo/src/init.c:39:7 (philo+0x4ba728)
+    #3 ft_init_info /home/macorso/Projects/philosopher/philo/src/philo.c:21:9 (philo+0x4bb182)
+    #4 main /home/macorso/Projects/philosopher/philo/src/philo.c:80:9 (philo+0x4bb4f8)
+
+  Mutex M1 (0x7b4c00000028) created at:
+==================
+WARNING: ThreadSanitizer: data race (pid=313777)
+  Write of size 4 at 0x7b5400000010 by thread T1 (mutexes: write M1, write M0):
+    #0 eat /home/macorso/Projects/philosopher/philo/src/routine.c:44:20 (philo+0x4baf7d)
+    #1 philosopher_routine /home/macorso/Projects/philosopher/philo/src/routine.c:68:3 (philo+0x4bb0d9)
+
+  Previous read of size 4 at 0x7b5400000010 by thread T11 (mutexes: write M11):
+    #0 death_monitor /home/macorso/Projects/philosopher/philo/src/death.c:27:23 (philo+0x4ba20e)
+
+  Location is heap block of size 560 at 0x7b5400000000 allocated by main thread:
+    #0 malloc <null> (philo+0x44840b)
+    #1 ft_allocate_resources /home/macorso/Projects/philosopher/philo/src/init.c:50:16 (philo+0x4ba7f1)
+    #2 ft_create_info /home/macorso/Projects/philosopher/philo/src/init.c:39:7 (philo+0x4ba728)
+    #3 ft_init_info /home/macorso/Projects/philosopher/philo/src/philo.c:21:9 (philo+0x4bb182)
+    #4 main /home/macorso/Projects/philosopher/philo/src/philo.c:80:9 (philo+0x4bb4f8)
+
+  Mutex M1 (0x7b4c00000028) created at:
+    #0 pthread_mutex_init <null> (philo+0x44b46d)
+    #1 ft_allocate_resources /home/macorso/Projects/philosopher/philo/src/init.c:62:7 (philo+0x4ba926)
+    #0 pthread_mutex_init <null> (philo+0x44b46d)
+    #1 ft_allocate_resources /home/macorso/Projects/philosopher/philo/src/init.c:62:7 (philo+0x4ba926)
+    #2 ft_create_info /home/macorso/Projects/philosopher/philo/src/init.c:39:7 (philo+0x4ba728)
+    #2 ft_create_info /home/macorso/Projects/philosopher/philo/src/init.c:39:7 (philo+0x4ba728)
+    #3 ft_init_info /home/macorso/Projects/philosopher/philo/src/philo.c:21:9 (philo+0x4bb182)
+    #3 ft_init_info /home/macorso/Projects/philosopher/philo/src/philo.c:21:9 (philo+0x4bb182)
+    #4 main /home/macorso/Projects/philosopher/philo/src/philo.c:80:9 (philo+0x4bb4f8)
+    #4 main /home/macorso/Projects/philosopher/philo/src/philo.c:80:9 (philo+0x4bb4f8)
+
+
+  Mutex M0 (0x7b4c00000000) created at:
+  Mutex M0 (0x7b4c00000000) created at:
+    #0 pthread_mutex_init <null> (philo+0x44b46d)
+    #0 pthread_mutex_init <null> (philo+0x44b46d)
+    #1 ft_allocate_resources /home/macorso/Projects/philosopher/philo/src/init.c:62:7 (philo+0x4ba926)
+    #1 ft_allocate_resources /home/macorso/Projects/philosopher/philo/src/init.c:62:7 (philo+0x4ba926)
+    #2 ft_create_info /home/macorso/Projects/philosopher/philo/src/init.c:39:7 (philo+0x4ba728)
+    #2 ft_create_info /home/macorso/Projects/philosopher/philo/src/init.c:39:7 (philo+0x4ba728)
+    #3 ft_init_info /home/macorso/Projects/philosopher/philo/src/philo.c:21:9 (philo+0x4bb182)
+    #3 ft_init_info /home/macorso/Projects/philosopher/philo/src/philo.c:21:9 (philo+0x4bb182)
+    #4 main /home/macorso/Projects/philosopher/philo/src/philo.c:80:9 (philo+0x4bb4f8)
+    #4 main /home/macorso/Projects/philosopher/philo/src/philo.c:80:9 (philo+0x4bb4f8)
+
+  Mutex M11 (0x7b2000000058) created at:
+
+  Mutex M11 (0x7b2000000058) created at:
+    #0 pthread_mutex_init <null> (philo+0x44b46d)
+    #0 pthread_mutex_init <null> (philo+0x44b46d)
+    #1 ft_create_info /home/macorso/Projects/philosopher/philo/src/init.c:42:2 (philo+0x4ba769)
+    #1 ft_create_info /home/macorso/Projects/philosopher/philo/src/init.c:42:2 (philo+0x4ba769)
+    #2 ft_init_info /home/macorso/Projects/philosopher/philo/src/philo.c:21:9 (philo+0x4bb182)
+    #2 ft_init_info /home/macorso/Projects/philosopher/philo/src/philo.c:21:9 (philo+0x4bb182)
+    #3 main /home/macorso/Projects/philosopher/philo/src/philo.c:80:9 (philo+0x4bb4f8)
+    #3 main /home/macorso/Projects/philosopher/philo/src/philo.c:80:9 (philo+0x4bb4f8)
+
+
+  Thread T1 (tid=313780, running) created by main thread at:  Thread T1 (tid=313780, running) created by main thread at:
+
+    #0 pthread_create <null> (philo+0x449c3b)
+    #0 pthread_create <null> (philo+0x449c3b)
+    #1 ft_start_simulation /home/macorso/Projects/philosopher/philo/src/philo.c:37:7 (philo+0x4bb293)
+    #1 ft_start_simulation /home/macorso/Projects/philosopher/philo/src/philo.c:37:7 (philo+0x4bb293)
+    #2 main /home/macorso/Projects/philosopher/philo/src/philo.c:85:6 (philo+0x4bb560)
+    #2 main /home/macorso/Projects/philosopher/philo/src/philo.c:85:6 (philo+0x4bb560)
+
+  Thread T11 (tid=313790, running) created by main thread at:
+  Thread T11 (tid=313790, running) created by main thread at:
+
+    #0 pthread_create <null> (philo+0x449c3b)
+    #0 pthread_create <null> (philo+0x449c3b)
+    #1 ft_start_simulation /home/macorso/Projects/philosopher/philo/src/philo.c:41:6 (philo+0x4bb2dc)
+    #1 ft_start_simulation /home/macorso/Projects/philosopher/philo/src/philo.c:41:6 (philo+0x4bb2dc)
+    #2 main /home/macorso/Projects/philosopher/philo/src/philo.c:85:6 (philo+0x4bb560)
+    #2 main /home/macorso/Projects/philosopher/philo/src/philo.c:85:6 (philo+0x4bb560)
+
+
+SUMMARY: ThreadSanitizer: data race /home/macorso/Projects/philosopher/philo/src/routine.c:44:20 in eat
+SUMMARY: ThreadSanitizer: data race /home/macorso/Projects/philosopher/philo/src/routine.c:44:20 in eat
+==================
+==================
+==================
+WARNING: ThreadSanitizer: thread leak (pid=313777)
+==================
+WARNING: ThreadSanitizer: thread leak (pid=313777)
+  Thread T1 (tid=313780, finished) created by main thread at:
+    #0 pthread_create <null> (philo+0x449c3b)
+  Thread T1 (tid=313780, finished) created by main thread at:
+    #0 pthread_create <null> (philo+0x449c3b)
+    #1 ft_start_simulation /home/macorso/Projects/philosopher/philo/src/philo.c:37:7 (philo+0x4bb293)
+    #1 ft_start_simulation /home/macorso/Projects/philosopher/philo/src/philo.c:37:7 (philo+0x4bb293)
+    #2 main /home/macorso/Projects/philosopher/philo/src/philo.c:85:6 (philo+0x4bb560)
+    #2 main /home/macorso/Projects/philosopher/philo/src/philo.c:85:6 (philo+0x4bb560)
+
+
+SUMMARY: ThreadSanitizer: thread leak (/home/macorso/Projects/philosopher/philo/philo+0x449c3b) in pthread_create
+SUMMARY: ThreadSanitizer: thread leak (/home/macorso/Projects/philosopher/philo/philo+0x449c3b) in pthread_create
+==================
+ThreadSanitizer: reported 3 warnings
+==================
+ThreadSanitizer: reported 3 warnings

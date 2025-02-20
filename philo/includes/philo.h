@@ -1,0 +1,66 @@
+#ifndef PHILO_H
+#define PHILO_H
+
+#define _DEFAULT_SOURCE
+
+#include <unistd.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <pthread.h>
+#include <sys/time.h>
+#include <stdbool.h>
+
+#define GREEN = "\e[0m\e[1;32m"
+#define CYAN = "\e[0m\e[1;36m"
+#define MAGENTA = "\e[0m\e[1;35m"
+#define YELLOW = "\e[0m\e[1;33m\e[3;33m"
+#define RESET = "\e[0m"
+
+typedef struct s_info
+{
+	long			start_time;
+	int				philo_count;
+	int				death_time;
+	int				eat_time;
+	int				sleep_time;
+	int				num_meals;
+	bool			someone_died;
+	struct s_philo	*philo;
+	pthread_mutex_t	*forks;
+	pthread_mutex_t	print;
+	pthread_mutex_t	death;
+}	t_info;
+
+typedef struct s_philo
+{
+	int				id;
+	pthread_t		thread;
+	int				meals_eaten;
+	long			last_meal_time;
+	pthread_mutex_t	last_meal_mutex;
+	t_info			*info;
+	pthread_mutex_t	*fork_left;
+	pthread_mutex_t	*fork_right;
+}	t_philo;
+
+/* Core functions */
+t_info	*ft_create_info(int ac, char **av);
+int		ft_allocate_resources(t_info *info);
+void	ft_init_philo(t_philo *philos, t_info *info);
+t_info	*ft_init_info(int ac, char **av);
+int		ft_start_simulation(t_info *info);
+int	ft_end_simulation(t_info *info);
+
+/* Thread routines */
+void	*philosopher_routine(void *arg);
+void	*death_monitor(void *arg);
+
+/* Utility functions */
+int		ft_atoi(const char *str);
+void	smart_print(t_philo *philo, char *msg);
+int		smart_sleep(t_philo *philo);
+void	smart_wait(long time);
+int		ft_error(char *msg);
+long	get_time_ms(void);
+
+#endif
